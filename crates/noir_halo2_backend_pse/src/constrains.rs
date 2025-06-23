@@ -120,7 +120,7 @@ impl NoirHalo2Translator<Fr> {
         &self,
         witness: Witness,
         num_bits: u32,
-        range_chip: &RangeChip<Fr>,
+        // range_chip: &RangeChip<Fr>,
         layouter: &mut impl Layouter<Fr>,
         witness_assignments: &mut AssignedMap<Fr>,
     ) -> Result<(), pse_halo2wrong::halo2::plonk::Error> {
@@ -138,11 +138,11 @@ impl NoirHalo2Translator<Fr> {
                 let limb_bit_len = 8;
                 let bit_len = num_bits as usize;
 
-                let cell = range_chip.assign(ctx, value, limb_bit_len, bit_len)?;
-                witness_assignments.check_and_copy(ctx, witness.0, &cell)?;
+                // let cell = range_chip.assign(ctx, value, limb_bit_len, bit_len)?;
+                // witness_assignments.check_and_copy(ctx, witness.0, &cell)?;
 
                 // add to assignment map
-                witness_assignments.insert(witness, cell);
+                // witness_assignments.insert(witness, cell);
 
                 Ok(())
             },

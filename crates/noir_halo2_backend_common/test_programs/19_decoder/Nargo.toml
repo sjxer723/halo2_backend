@@ -1,0 +1,7 @@
+[package]
+authors = [""]
+name = "19_decoder"
+type ="bin"
+compiler_version = "0.32.0"
+
+[dependencies]

@@ -1,0 +1,7 @@
+[package]
+authors = [""]
+name = "20_num2bits"
+type ="bin"
+compiler_version = "0.32.0"
+
+[dependencies]

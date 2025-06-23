@@ -23,3 +23,6 @@ getrandom.workspace = true
 serde-wasm-bindgen.workspace = true
 tokio.workspace = true
 wasm-bindgen.workspace = true
+
+rand_chacha = "0.3.1"
+pse_halo2_proofs = { git = "https://github.com/privacy-scaling-explorations/halo2.git", package = "halo2_proofs", tag = "v2023_04_20" }

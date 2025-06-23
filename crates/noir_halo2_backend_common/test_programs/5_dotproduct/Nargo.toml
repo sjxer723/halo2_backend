@@ -1,0 +1,7 @@
+[package]
+authors = [""]
+name = "5_dotproduct"
+type ="bin"
+compiler_version = "0.32.0"
+
+[dependencies]

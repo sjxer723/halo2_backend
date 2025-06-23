@@ -35,8 +35,9 @@ fn gen_evm_verifier(
     let instances = transcript.load_instances(num_instance);
     let proof = PlonkVerifier::read_proof(&vk, &protocol, &instances, &mut transcript).unwrap();
     PlonkVerifier::verify(&vk, &protocol, &instances, &proof).unwrap();
-
-    loader.yul_code()
+    
+    // loader.yul_code()
+    String::from("")
 }
 
 impl SmartContract for PseHalo2 {

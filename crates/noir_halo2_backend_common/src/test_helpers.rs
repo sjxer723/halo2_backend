@@ -129,11 +129,11 @@ pub fn install_nargo(backend: &'static str) {
     Command::new("git")
         .current_dir(fs::canonicalize("../").unwrap())
         .arg("clone")
-        .arg("https://github.com/Mach-34/noir")
+        .arg("https://github.com/Ethan-000/noir.git")
         .arg("--depth")
         .arg("1")
         .arg("--branch")
-        .arg("demo-0.1.3")
+        .arg("demo-0.1.2")
         .spawn()
         .unwrap()
         .wait()
@@ -198,8 +198,11 @@ pub fn run_nargo_verify(test_program: PathBuf) {
  * @return - the deserialized ACIR and solved witness (given the saved Prover.toml)
  */
 #[allow(dead_code)]
-pub fn build_artifacts(program: &'static str, backend: &'static str) -> (Circuit, WitnessMap) {
-    install_nargo(backend);
+pub fn build_artifacts(program: &'static str, backend: &'static str, is_installed: bool) -> (Circuit, WitnessMap) {
+    if !is_installed {
+        // install nargo if not already installed
+        install_nargo(backend);
+    }
     // format path to test program
     let path =
         std::fs::canonicalize(format!("../noir_halo2_backend_common/test_programs/{program}"))

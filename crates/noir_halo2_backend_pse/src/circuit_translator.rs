@@ -59,7 +59,7 @@ impl Halo2PlonkCircuit<Fr> for NoirHalo2Translator<Fr> {
         mut layouter: impl pse_halo2wrong::halo2::circuit::Layouter<Fr>,
     ) -> Result<(), pse_halo2wrong::halo2::plonk::Error> {
         let mut witness_assignments = AssignedMap::<Fr>::new();
-        let range_chip = RangeChip::<Fr>::new(config.range_config.clone());
+        // let range_chip = RangeChip::<Fr>::new(config.range_config.clone());
         for gate in self.circuit.opcodes.iter() {
             match gate {
                 Opcode::Arithmetic(expression) => {
@@ -75,7 +75,7 @@ impl Halo2PlonkCircuit<Fr> for NoirHalo2Translator<Fr> {
                         BlackBoxFuncCall::RANGE { input } => self.add_range_constrain(
                             input.witness,
                             input.num_bits,
-                            &range_chip,
+                            // &range_chip,
                             &mut layouter,
                             &mut witness_assignments,
                         )?,
@@ -156,7 +156,7 @@ impl Halo2PlonkCircuit<Fr> for NoirHalo2Translator<Fr> {
             }
         }
 
-        range_chip.load_table(&mut layouter)?;
+        // range_chip.load_table(&mut layouter)?;
 
         // synthesize public io
         self.expose_public(&config, &mut layouter, &witness_assignments)?;
