@@ -21,5 +21,5 @@ fn pow(x: Field, y: Field) -> Field { // As in tests with minor modifications
 fn main(x: Field) {
     // fix q to be the prime order of the field - 1
     // the following holdß by Fermat's little theorem
-    assert (pow(x, -1 as Field) == 1);
+    assert(pow(x, 0 - 1 as Field) == 1);
 }
